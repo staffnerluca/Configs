@@ -140,5 +140,30 @@ else
     cowsay -f dragon "A true warrior doesn't need a sword" | lolcat
 fi
 
-[ -f "/home/ls/.ghcup/env" ] && source "/home/ls/.ghcup/env" # ghcup-env
-alias upo="upower -i $(upower -e | grep 'BAT') | grep -E 'state|to\ full|percentage'"
+[ -f "/home/ls/.ghcup/env" ] && source "/home/ls/.ghcup/env" # ghcup-ev
+#alias upo=upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"
+
+#[ -f "/home/staffnerluca/.ghcup/env" ] && source "/home/staffnerluca/.ghcup/env" # ghcup-env
+[ -f "/home/staffnerluca/.ghcup/env" ] && source "/home/staffnerluca/.ghcup/env" # ghcup-env
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+upo() {
+    upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"
+}
+
+wo(){
+	nmcli device wifi connect STRONG_ATRIA_L7C9
+}
+
+gall() {
+	read -p "Commit Message: " mes
+	if [ -z "$mes" ]; then
+		mes="a new commit"
+	fi
+	git add .
+	git commit -m "$mes"
+	rep=$(git config --get remote.origin.url)
+
+	git push
+}

@@ -4,14 +4,13 @@ sudo apt update
 sudo apt upgrade
 
 sudo apt install awesome
-sudo apt install nvim
+sudo apt install neovim
 sudo apt install vim
 sudo apt install texstudio
 sudo apt install texlive-full
 sudo apt install python
 sudo apt install cowsay
 sudo apt install lolcat
-sudo apt install anki
 sudo apt install obs-studio
 
 sudo snap install bitwarden
